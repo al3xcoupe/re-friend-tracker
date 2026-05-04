@@ -85,6 +85,14 @@
                         "required": true
                     },
                     {
+                        "id": "comment",
+                        "type": "text",
+                        "name": "Comments",
+                        "width": 2,
+                        "height": 4,
+                        "maxLength": 5000
+                    },
+                    {
                         "type": "deleteButton",
                         "name": "Delete"
                     },
@@ -107,8 +115,23 @@
                         "id": "name",
                         "type": "text",
                         "name": "GroupName",
-                        "width": 2,
+                        "width": 1,
                         "required": true
+                    },
+                    {
+                        "id": "creationdate",
+                        "type": "date",
+                        "name": "CreationDate",
+                        "width": 1,
+                        "required": true
+                    },
+                    {
+                        "id": "comment",
+                        "type": "text",
+                        "name": "Comments",
+                        "width": 2,
+                        "height": 4,
+                        "maxLength": 5000
                     },
                     {
                         "type": "deleteButton",
@@ -136,7 +159,7 @@
                         "url": "/activity",
                         "defaultKey": "activityKey",
                         "readonly": true,
-                        "form": "ActivityForm",
+                        "form": "AddActivityForm",
                         "width": 2
                     },
                     {
@@ -156,9 +179,18 @@
                     {
                         "id": "comment",
                         "type": "text",
-                        "name": "Kommentar",
+                        "name": "Comments",
                         "width": 2,
-                        "required": true
+                        "height": 4,
+                        "maxLength": 5000
+                    },
+                    {
+                        "id": "location",
+                        "type": "autocomplete",
+                        "name": "Location",
+                        "url": "/location",
+                        "form": "LocationForm",
+                        "width": 2
                     },
                     {
                         "type": "deleteButton",
@@ -231,9 +263,7 @@
                         "color": "blue",
                         "search": true,
                         "url": "/friend",
-                        "form": {
-                            "form": "FriendForm"
-                        }
+                        "page": "friendDetailPage"
                     }
                 ]
             },
@@ -315,6 +345,42 @@
                         "url": "/activity",
                         "form": {
                             "form": "GroupForm"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "friendDetailPage",
+                "elementList": [
+                    {
+                        "type": "backbutton"
+                    },
+                    {
+                        "type": "button",
+                        "name": "Edit Friend",
+                        "icon": "fa-user",
+                        "color": "green",
+                        "form": {
+                            "form": "FriendForm"
+                        }
+                    },
+                    {
+                        "type": "newButton",
+                        "name": "Add Activity",
+                        "icon": "fa-calendar",
+                        "color": "green",
+                        "form": {
+                            "form": "AddActivityForm"
+                        }
+                    },
+                    {
+                        "type": "list",
+                        "icon": "fa-calendar",
+                        "color": "pumpkin",
+                        "search": true,
+                        "url": "/friend/:friendKey/activity",
+                        "form": {
+                            "form": "AddActivityForm"
                         }
                     }
                 ]
