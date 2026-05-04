@@ -140,6 +140,27 @@
                         "width": 2
                     },
                     {
+                        "id": "name",
+                        "type": "text",
+                        "name": "Name",
+                        "width": 1,
+                        "required": true
+                    },
+                    {
+                        "id": "date",
+                        "type": "date",
+                        "name": "Datum",
+                        "width": 1,
+                        "required": true
+                    },
+                    {
+                        "id": "comment",
+                        "type": "text",
+                        "name": "Kommentar",
+                        "width": 2,
+                        "required": true
+                    },
+                    {
                         "type": "deleteButton",
                         "name": "Delete"
                     },
@@ -181,12 +202,12 @@
                         "page": "groupspage"
                     },
                     {
-"type": "button",
-"name": "Activity",
-"icon": "fa-hiking",
-"color": "red",
-"page": "activitypage"
-}
+                        "type": "button",
+                        "name": "Activity",
+                        "icon": "fa-hiking",
+                        "color": "red",
+                        "page": "activitypage"
+                    }
                 ]
             },
             {
@@ -271,7 +292,7 @@
                     }
                 ]
             },
-             {
+            {
                 "id": "activitypage",
                 "elementList": [
                     {
