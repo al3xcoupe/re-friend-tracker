@@ -156,7 +156,7 @@
                         "id": "activity",
                         "type": "autocomplete",
                         "name": "Activity",
-                        "url": "/activity",
+                        "url": "/friend/:friendKey/activity",
                         "defaultKey": "activityKey",
                         "readonly": true,
                         "form": "AddActivityForm",
@@ -191,6 +191,42 @@
                         "url": "/location",
                         "form": "LocationForm",
                         "width": 2
+                    },
+                    {
+                        "type": "deleteButton",
+                        "name": "Delete"
+                    },
+                    {
+                        "type": "cancelButton",
+                        "name": "Cancel"
+                    },
+                    {
+                        "type": "okButton",
+                        "name": "Ok"
+                    }
+                ]
+            },
+            {
+                "id": "ActivityFriendForm",
+                "title": "Activity Friend",
+                "url": "/activity/:activityKey/friend",
+                "formFieldList": [
+                    {
+                        "id": "friend",
+                        "type": "autocomplete",
+                        "name": "Friend",
+                        "url": "/friend",
+                        "form": "FriendForm",
+                        "width": 2,
+                        "required": true
+                    },
+                    {
+                        "id": "comment",
+                        "type": "text",
+                        "name": "Comments",
+                        "width": 2,
+                        "height": 4,
+                        "maxLength": 5000
                     },
                     {
                         "type": "deleteButton",
@@ -331,7 +367,7 @@
                     {
                         "type": "newButton",
                         "name": "NewActivity",
-                        "icon": "fa-heiking",
+                        "icon": "fa-hiking",
                         "color": "green",
                         "form": {
                             "form": "AddActivityForm"
@@ -343,9 +379,7 @@
                         "color": "wisteria",
                         "search": true,
                         "url": "/activity",
-                        "form": {
-                            "form": "GroupForm"
-                        }
+                        "page": "activityDetailPage"
                     }
                 ]
             },
@@ -381,6 +415,42 @@
                         "url": "/friend/:friendKey/activity",
                         "form": {
                             "form": "AddActivityForm"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "activityDetailPage",
+                "elementList": [
+                    {
+                        "type": "backbutton"
+                    },
+                    {
+                        "type": "button",
+                        "name": "Edit Activity",
+                        "icon": "fa-hiking",
+                        "color": "green",
+                        "form": {
+                            "form": "AddActivityForm"
+                        }
+                    },
+                    {
+                        "type": "newButton",
+                        "name": "Add Friend",
+                        "icon": "fa-user-plus",
+                        "color": "green",
+                        "form": {
+                            "form": "ActivityFriendForm"
+                        }
+                    },
+                    {
+                        "type": "list",
+                        "icon": "fa-user",
+                        "color": "blue",
+                        "search": true,
+                        "url": "/activity/:activityKey/friend",
+                        "form": {
+                            "form": "ActivityFriendForm"
                         }
                     }
                 ]
